@@ -1,5 +1,16 @@
 ---
 title: "Git and Github Guide"
-format: html
+author: "Kaiyi Ye"
+format: 
+  pdf:
+    toc: true
+    number-sections: true
+    keep-tex: true
+fontsize: 11pt
 ---
 
+## Create a RStudio Project and a qmd File
+
+``` bash
+git init
+```
