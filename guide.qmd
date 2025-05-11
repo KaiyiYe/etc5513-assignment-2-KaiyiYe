@@ -77,7 +77,7 @@ Now you should be able to see your repository on GitHub.
 
 ::: {.callout-tip}
 ## Tip
-We use `-u` flag to tell Git to remember the connection between our local main branch and the remote origin/main branch.
+We use the `-u` flag to tell Git to remember the connection between our local main branch and the remote origin/main branch.
 :::
 
 # Create a New Branch and Make Changes
@@ -98,7 +98,7 @@ git switch -c testbranch
 
 ::: {.callout-tip}
 ## Tip
-`-c` flag is short for `--create`. It tells git to create a new branch and immediately switch to it.
+The `-c` flag is short for `--create`. It tells git to create a new branch and immediately switch to it.
 :::
 
 ## Step 2: Make Changes to a File
@@ -109,10 +109,46 @@ git switch -c testbranch
 
 ## Step 3: Stage and Commit the Changes
 
-1. Check which files were changed: `git status`.
-2. Stage the file: `git add example.qmd`.
-3. Commit the change: `git commit -m "Added a line to example on testbranch"`.
+1. Check which files were changed: `git status`
+2. Stage the file: `git add example.qmd`
+3. Commit the change: `git commit -m "Added a line to example on testbranch"`
 
 Your changes made to the file are now saved locally in your local branch.
+
+# Amend the Last Commit
+
+## Step 1: Create a Folder inside the Project
+
+1. Inside the RStudio project, create a folder called `data`.
+2. Place the data into this folder.
+
+## Step 2: Amend the Last Commit to Include the Folder
+
+1. Stage and Commit the Changes:
+```bash
+git add .
+git commit --amend
+```
+2. Edit the commit message at the top of the text editor. For example: "Added a line to example on testbranch and created a folder".
+3. Save the commit and close the editor.
+4. Push this amended commit to the remote: `git push -u origin testbranch`
+
+You should now see the `testbranch` and the commit messages appear on GitHub.
+
+::: {.callout-tip}
+## Tip
+We need the `-u` flag on the `push` command to set the remote branch as the default tracking branch. After running this, Git will remember that our local local is connected to the remote (origin). From now on, we can simply run `git push` without needing to specify the remote or branch name again.
+:::
+
+
+
+
+
+
+
+
+
+
+
 
 
