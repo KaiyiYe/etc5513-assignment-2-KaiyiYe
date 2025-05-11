@@ -187,3 +187,28 @@ Now you should see that the GitHub commit history on the `main` branch displays 
 
 ![](Images/Screenshot-step6-commit-history.png)\
 
+# Make an annotated tag
+
+Annotated tags stores extra metadata, such as the tagger name, email and date.
+
+1. Create a new annotated tag identified with v1.0: `git tag -a v1.0`
+2. Write a message for the tag in the text editor. For example: "Initial release version"
+3. Save the editor and close it.
+4. Push the tag to the remote: `git push origin v1.0`
+
+Now you can view your tags on GitHub.
+
+::: {.callout-tip}
+## Tip
+By default, `git tag` creates a tag on `HEAD` (i.e., the latest commit). To tag an earlier commit, simply add the commit hash at the end of the command:
+```bash
+git tag <tag-name> <commit-hash>
+```
+:::
+
+
+
+
+
+
+
