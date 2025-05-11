@@ -80,3 +80,39 @@ Now you should be able to see your repository on GitHub.
 We use `-u` flag to tell Git to remember the connection between our local main branch and the remote origin/main branch.
 :::
 
+# Create a New Branch and Make Changes
+
+## Step 1: Create a New Branch
+
+1. In the terminal, make sure you are inside your project folder: `cd my-new-project`
+2. Create and switch to a new branch called `testbranch`:
+
+```bash
+git branch tsetbranch
+git switch testbranch
+```
+Or you can also do this in one command:
+```bash
+git switch -c testbranch
+```
+
+::: {.callout-tip}
+## Tip
+`-c` flag is short for `--create`. It tells git to create a new branch and immediately switch to it.
+:::
+
+## Step 2: Make Changes to a File
+1. Open the `example.qmd` file in RStudio.
+2. Make sure you are working on branch `testbranch`: `git branch`
+3. Add a new line to the bottom: `This is a change I made on the testbranch.`
+4. Save the file.
+
+## Step 3: Stage and Commit the Changes
+
+1. Check which files were changed: `git status`.
+2. Stage the file: `git add example.qmd`.
+3. Commit the change: `git commit -m "Added a line to example on testbranch"`.
+
+Your changes made to the file are now saved locally in your local branch.
+
+
