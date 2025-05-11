@@ -138,6 +138,10 @@
 \def\fps@figure{htbp}
 \makeatother
 
+\usepackage{tocloft}
+\renewcommand{\cftsecfont}{\normalsize}
+\renewcommand{\cftsecpagefont}{\normalsize}
+\setlength{\cftbeforesecskip}{4pt}
 \definecolor{codefontcolor}{RGB}{125,18,186}
 \definecolor{codebggray}{HTML}{f8f9fa}
 \let\textttOrig\texttt
@@ -207,7 +211,7 @@
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   pdftitle={Git and Github Guide},
-  pdfauthor={Kaiyi Ye},
+  pdfauthor={Kaiyi Ye 35255005},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -217,7 +221,7 @@
 
 
 \title{Git and Github Guide}
-\author{Kaiyi Ye}
+\author{Kaiyi Ye 35255005}
 \date{}
 
 \begin{document}
@@ -226,16 +230,14 @@
 \renewcommand*\contentsname{Table of contents}
 {
 \hypersetup{linkcolor=}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{1}
 \tableofcontents
 }
 
-\section{\texorpdfstring{Set up RStudio Project and Create a
-\texttt{.qmd}
-File}{Set up RStudio Project and Create a .qmd File}}\label{set-up-rstudio-project-and-create-a-.qmd-file}
+\newpage
 
-Establishing good practices for organizing and accessing project files
-is essential for effectively sharing your work with others.
+\section{Set Up RStudio Project and Create a Quarto
+File}\label{set-up-rstudio-project-and-create-a-quarto-file}
 
 \subsection{Step 1: Create a New
 Project}\label{step-1-create-a-new-project}
@@ -259,8 +261,8 @@ Project}\label{step-1-create-a-new-project}
   Click \texttt{Create\ Project}.
 \end{enumerate}
 
-\subsection{\texorpdfstring{Step 2: Create a \texttt{.qmd}
-File}{Step 2: Create a .qmd File}}\label{step-2-create-a-.qmd-file}
+\subsection{Step 2: Create a Quarto
+File}\label{step-2-create-a-quarto-file}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -277,7 +279,8 @@ File}{Step 2: Create a .qmd File}}\label{step-2-create-a-.qmd-file}
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{title}\KeywordTok{:}\AttributeTok{ }\StringTok{"example"}
-\FunctionTok{author}\KeywordTok{:}\AttributeTok{ write your name}
+\FunctionTok{author}\KeywordTok{:}\AttributeTok{ }\StringTok{"your name"}
+\FunctionTok{date}\KeywordTok{:}\AttributeTok{ today}
 \FunctionTok{format}\KeywordTok{:}\AttributeTok{ html}
 \end{Highlighting}
 \end{Shaded}
@@ -287,10 +290,23 @@ File}{Step 2: Create a .qmd File}}\label{step-2-create-a-.qmd-file}
 \setcounter{enumi}{3}
 \tightlist
 \item
-  Save the file, then render to preview the document output.
+  Save the file, then render to preview the document output (see
+  Figure~\ref{fig-render-preview}).
 \end{enumerate}
 
-\pandocbounded{\includegraphics[keepaspectratio]{Images/Screenshot-knitted-qmd.png}}\\
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{Images/Screenshot-knitted-qmd.png}}
+
+}
+
+\caption{\label{fig-render-preview}Render Preview}
+
+\end{figure}%
+
+\newpage
 
 \section{Create a Git Repository from Existing
 work}\label{create-a-git-repository-from-existing-work}
@@ -359,12 +375,14 @@ Repository}\label{step-3-set-up-the-remote-repository}
 
 Now you should be able to see your repository on GitHub.
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, colframe=quarto-callout-tip-color-frame, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, breakable, opacitybacktitle=0.6, opacityback=0, leftrule=.75mm, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, arc=.35mm, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, bottomrule=.15mm, opacitybacktitle=0.6, breakable, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, colback=white, titlerule=0mm, arc=.35mm, colframe=quarto-callout-tip-color-frame]
 
 We use the \texttt{-u} flag to tell Git to remember the connection
 between our local main branch and the remote origin/main branch.
 
 \end{tcolorbox}
+
+\newpage
 
 \section{Create a New Branch and Make
 Changes}\label{create-a-new-branch-and-make-changes}
@@ -397,7 +415,7 @@ Or you can also do this in one command:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, colframe=quarto-callout-tip-color-frame, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, breakable, opacitybacktitle=0.6, opacityback=0, leftrule=.75mm, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, arc=.35mm, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, bottomrule=.15mm, opacitybacktitle=0.6, breakable, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, colback=white, titlerule=0mm, arc=.35mm, colframe=quarto-callout-tip-color-frame]
 
 The \texttt{-c} flag is short for \texttt{-\/-create}. It tells git to
 create a new branch and immediately switch to it.
@@ -439,6 +457,8 @@ Changes}\label{step-3-stage-and-commit-the-changes}
 
 Your changes made to the file are now saved locally in your local
 branch.
+
+\newpage
 
 \section{Amend the Last Commit}\label{amend-the-last-commit}
 
@@ -488,7 +508,7 @@ Folder}\label{step-2-amend-the-last-commit-to-include-the-folder}
 You should now see the \texttt{testbranch} and the commit messages
 appear on GitHub.
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, colframe=quarto-callout-tip-color-frame, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, breakable, opacitybacktitle=0.6, opacityback=0, leftrule=.75mm, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, arc=.35mm, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, bottomrule=.15mm, opacitybacktitle=0.6, breakable, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, colback=white, titlerule=0mm, arc=.35mm, colframe=quarto-callout-tip-color-frame]
 
 We need the \texttt{-u} flag on the \texttt{push} command to set the
 remote branch as the default tracking branch. After running this, Git
@@ -524,14 +544,18 @@ specify the remote or branch name again.
 \end{Highlighting}
 \end{Shaded}
 
+\newpage
+
 \section{Fix the Merge Conflict}\label{fix-the-merge-conflict}
 
 \subsection{\texorpdfstring{Step 1: Merge the \texttt{testbranch} into
 \texttt{main}}{Step 1: Merge the testbranch into main}}\label{step-1-merge-the-testbranch-into-main}
 
 Try to merge the changes in \texttt{testbranch} onto \texttt{main}:
-\texttt{git\ merge\ testbranch} You'll see a merge conflict message that
-Git can't automatically merge the file.
+\texttt{git\ merge\ testbranch}
+
+You'll see a merge conflict message that Git can't automatically merge
+the file.
 
 \begin{verbatim}
 <<<<<<< HEAD
@@ -541,10 +565,274 @@ This is a change I made on the testbranch.
 >>>>>>> testbranch
 \end{verbatim}
 
-This means: - Everything between
-\texttt{\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}\ HEAD}
-and \texttt{=======} is from \texttt{main} - Everything after
-\texttt{=======} is from \texttt{testbranch}
+This means:
+
+\begin{itemize}
+\item
+  Everything above \texttt{=======} is from \texttt{main}
+\item
+  Everything after \texttt{=======} is from \texttt{testbranch}
+\end{itemize}
+
+\subsection{Step 2: Resolve the
+Conflict}\label{step-2-resolve-the-conflict}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Edit the file to keep only one version --- or combine them: ``This
+  line includes changes from both branches.''
+\item
+  Make sure you delete all the conflict markers:
+  \texttt{\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}\ HEAD},
+  \texttt{=======} and
+  \texttt{\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}\ testbranch}
+\item
+  Save the file.
+\end{enumerate}
+
+\subsection{Step 3: Finalize the Merge}\label{step-3-finalize-the-merge}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Stage the fixed file: \texttt{git\ add\ .}
+\item
+  Complete the merge with a commit:
+  \texttt{git\ commit\ -m\ "Resolved\ merge\ conflict\ in\ example.qmd"}
+\item
+  Push the updated \texttt{main} branch to GitHub:
+  \texttt{git\ push\ origin\ main}
+\end{enumerate}
+
+Now you should see that the GitHub commit history on the \texttt{main}
+branch displays all commit messages we've made before (see
+Figure~\ref{fig-commit-history}).
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{Images/Screenshot-step6-commit-history.png}}
+
+}
+
+\caption{\label{fig-commit-history}Commit History View in Git}
+
+\end{figure}%
+
+\newpage
+
+\section{Make an Annotated Tag}\label{make-an-annotated-tag}
+
+Annotated tags stores extra metadata, such as the tagger name, email and
+date.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a new annotated tag identified with v1.0:
+  \texttt{git\ tag\ -a\ v1.0}
+\item
+  Write a message for the tag in the text editor. For example: ``Initial
+  release version''
+\item
+  Save the editor and close it.
+\item
+  Push the tag to the remote: \texttt{git\ push\ origin\ v1.0}
+\end{enumerate}
+
+Now you can view your tags on GitHub.
+
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, bottomrule=.15mm, opacitybacktitle=0.6, breakable, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, colback=white, titlerule=0mm, arc=.35mm, colframe=quarto-callout-tip-color-frame]
+
+By default, \texttt{git\ tag} creates a tag on \texttt{HEAD} (i.e., the
+latest commit). To tag an earlier commit, simply add the commit hash at
+the end of the command:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ tag }\OperatorTok{\textless{}}\NormalTok{tag{-}name}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{commit{-}hash}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
+\newpage
+
+\section{Delete a Branch}\label{delete-a-branch}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Switch to branch \texttt{main}: \texttt{git\ switch\ main}. Remember
+  that you can use \texttt{git\ branch} to double check which branch you
+  are working on.
+\item
+  Delete the branch \texttt{testbranch} locally:
+  \texttt{git\ branch\ -d\ testbranch}
+\item
+  Delete the branch from the remote:
+  \texttt{git\ push\ origin\ -\/-delete\ testbranch}
+\end{enumerate}
+
+Now you can see that there is only one branch \texttt{main} in GitHub.
+
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, bottomrule=.15mm, opacitybacktitle=0.6, breakable, colbacktitle=quarto-callout-important-color!10!white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, left=2mm, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, colback=white, titlerule=0mm, arc=.35mm, colframe=quarto-callout-important-color-frame]
+
+You cannot delete a branch if your \texttt{HEAD} is on that branch.
+
+\end{tcolorbox}
+
+\section{Show the Commit Log}\label{show-the-commit-log}
+
+Use \texttt{git\ log\ -\/-oneline} to show the commit log in the
+terminal.
+
+The \texttt{-\/-oneline} flag condenses each commit to a single line. By
+default, it displays only the commit ID and the first line of the commit
+message. Your typical \texttt{git\ log-\/-oneline} output will look
+something like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{867894f (HEAD {-}\textgreater{} main, tag: v1.0, origin/main) Resolved merge conflict in example.qmd}
+\NormalTok{7379f16 Added a line on main}
+\NormalTok{4099339 Added a line to example and a data folder on testbranch}
+\NormalTok{1116428 Initial commit}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\section{Make a Plot and Undo the
+Commit}\label{make-a-plot-and-undo-the-commit}
+
+\subsection{Step 1: Make a Plot Using
+ggplot2}\label{step-1-make-a-plot-using-ggplot2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a new section called ``Make a Plot'' by using the \texttt{\#}
+  character.
+\item
+  Install the ggplot2 package in the Console then load it:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# load the package}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{\# view the dataset}
+\NormalTok{msleep}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Try to make a plot by using a built-in dataset in ggplot2:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot for total amount of sleep for mammals}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ msleep, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ sleep\_total)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_density}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Distribution of Total Sleep Time in Mammals"}\NormalTok{, }
+       \AttributeTok{x =} \StringTok{"Total Amount of Sleep (hours)"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Density"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{guide_files/figure-pdf/fig-sleep-density-1.pdf}}
+
+}
+
+\caption{\label{fig-sleep-density}Distribution of Total Sleep Time in
+Mammals}
+
+\end{figure}%
+
+\subsection{Step 2: Stage and Commit the
+Changes}\label{step-2-stage-and-commit-the-changes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ add .}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m}\StringTok{"Add a new section and make a plot"}
+\end{Highlighting}
+\end{Shaded}
+
+You can use \texttt{git\ log\ -\/-oneline} to view the commit history.
+You'll get something like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bd86707 (HEAD {-}\textgreater{} main) Add a new section and make a plot}
+\NormalTok{867894f (tag: v1.0, origin/main) Resolved merge conflict in example.qmd}
+\NormalTok{7379f16 Added a line on main}
+\NormalTok{4099339 Added a line to example and a data folder on testbranch}
+\NormalTok{1116428 Initial commit}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Step 3: Undo the Commit}\label{step-3-undo-the-commit}
+
+If you've just made a commit and realize you want to undo it, you can
+use the following command --- as long as you haven't pushed the commit
+yet:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ reset HEAD\textasciitilde{}1}
+\end{Highlighting}
+\end{Shaded}
+
+Now try:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ log }\AttributeTok{{-}{-}oneline}
+\end{Highlighting}
+\end{Shaded}
+
+You'll see that the latest commit has been removed --- \texttt{HEAD} has
+moved one commit backward.
+
+This command undoes the most recent commit but keeps all the changes in
+your working directory, just no longer staged. You can confirm this by
+running:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ status}
+\end{Highlighting}
+\end{Shaded}
+
+From here, you can make any adjustments, stage the correct files, and
+commit again with the proper message or content.
+
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, bottomrule=.15mm, opacitybacktitle=0.6, breakable, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, colback=white, titlerule=0mm, arc=.35mm, colframe=quarto-callout-tip-color-frame]
+
+If you prefer to keep all changes staged, use
+\texttt{git\ reset\ -\/-soft} instead.
+
+\end{tcolorbox}
 
 
 

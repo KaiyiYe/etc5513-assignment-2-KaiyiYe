@@ -1,9 +1,11 @@
 ---
 title: "Git and Github Guide"
-author: "Kaiyi Ye"
+author: "Kaiyi Ye 35255005"
 format:
   pdf:
+    output-file: Git-and-Github-Guide.pdf
     toc: true
+    toc-depth: 1
     number-sections: true
     keep-tex: true
     fontsize: 11pt
@@ -13,15 +15,20 @@ format:
     monofont: 'Fira Mono'
     include-in-header:
       text: |
+        \usepackage{tocloft}
+        \renewcommand{\cftsecfont}{\normalsize} 
+        \renewcommand{\cftsecpagefont}{\normalsize}
+        \setlength{\cftbeforesecskip}{4pt} 
         \definecolor{codefontcolor}{RGB}{125,18,186}
         \definecolor{codebggray}{HTML}{f8f9fa}
         \let\textttOrig\texttt
         \renewcommand{\texttt}[1]{\textttOrig{\colorbox{codebggray}{\textcolor{codefontcolor}{#1}}}}
+
+
 ---
+\newpage
 
-# Set up RStudio Project and Create a `.qmd` File
-
-Establishing good practices for organizing and accessing project files is essential for effectively sharing your work with others.
+# Set Up RStudio Project and Create a Quarto File
 
 ## Step 1: Create a New Project
 
@@ -32,7 +39,7 @@ Establishing good practices for organizing and accessing project files is essent
 5.  Enter a name for your project and select a location on your computer where you want to save it.
 6.  Click `Create Project`.
 
-## Step 2: Create a `.qmd` File
+## Step 2: Create a Quarto File
 
 1.  Go to the top menu and select `File` \> `New file` \> `Quarto Document`.
 2.  Save the file as `example.qmd`.
@@ -40,14 +47,16 @@ Establishing good practices for organizing and accessing project files is essent
 
 ``` yaml
 title: "example"
-author: write your name
+author: "your name"
+date: today
 format: html
 ```
 
-4.  Save the file, then render to preview the document output.
+4.  Save the file, then render to preview the document output (see @fig-render-preview).
 
-![](Images/Screenshot-knitted-qmd.png)\
+![Render Preview](Images/Screenshot-knitted-qmd.png){#fig-render-preview fig-cap="Render Preview of HTML"}
 
+\newpage
 
 # Create a Git Repository from Existing work
 
@@ -79,6 +88,8 @@ Now you should be able to see your repository on GitHub.
 ## Tip
 We use the `-u` flag to tell Git to remember the connection between our local main branch and the remote origin/main branch.
 :::
+
+\newpage
 
 # Create a New Branch and Make Changes
 
@@ -114,6 +125,8 @@ The `-c` flag is short for `--create`. It tells git to create a new branch and i
 3. Commit the change: `git commit -m "Added a line to example on testbranch"`
 
 Your changes made to the file are now saved locally in your local branch.
+
+\newpage
 
 # Amend the Last Commit
 
@@ -152,12 +165,14 @@ git add .
 git commit -m"Added the same line on main to make a conflict"
 git push origin main
 ```
+\newpage
 
 # Fix the Merge Conflict
 
 ## Step 1: Merge the `testbranch` into `main`
 
 Try to merge the changes in `testbranch` onto `main`: `git merge testbranch`
+
 You’ll see a merge conflict message that Git can’t automatically merge the file.
 
 ```
@@ -168,13 +183,15 @@ This is a change I made on the testbranch.
 >>>>>>> testbranch
 ```
 This means: 
+
 - Everything above `=======` is from `main` 
+
 - Everything after `=======` is from `testbranch`
 
 ## Step 2: Resolve the Conflict
 
 1. Edit the file to keep only one version — or combine them: "This line includes changes from both branches."
-2. Make sure you delete all the conflict markers: `<<<<<<< HEAD`, `=======` and '>>>>>>> testbranch'
+2. Make sure you delete all the conflict markers: `<<<<<<< HEAD`, `=======` and `>>>>>>> testbranch`
 3. Save the file.
 
 ## Step 3: Finalize the Merge
@@ -183,9 +200,11 @@ This means:
 2. Complete the merge with a commit: `git commit -m "Resolved merge conflict in example.qmd"`
 3. Push the updated `main` branch to GitHub: `git push origin main`
 
-Now you should see that the GitHub commit history on the `main` branch displays all commit messages we've made before.
+Now you should see that the GitHub commit history on the `main` branch displays all commit messages we've made before (see @fig-commit-history).
 
-![](Images/Screenshot-step6-commit-history.png)\
+![Commit History View in Git](Images/Screenshot-step6-commit-history.png){#fig-commit-history fig-cap="Commit History View in Git"}
+
+\newpage
 
 # Make an Annotated Tag
 
@@ -206,6 +225,8 @@ git tag <tag-name> <commit-hash>
 ```
 :::
 
+\newpage
+
 # Delete a Branch
 
 1. Switch to branch `main`: `git switch main`. Remember that you can use `git branch` to double check which branch you are working on.
@@ -214,8 +235,8 @@ git tag <tag-name> <commit-hash>
 
 Now you can see that there is only one branch `main` in GitHub.
 
-::: {.callout-tip}
-## Caution
+::: {.callout-important}
+## Important
 You cannot delete a branch if your `HEAD` is on that branch.
 :::
 
@@ -225,13 +246,79 @@ Use `git log --oneline` to show the commit log in the terminal.
 
 The `--oneline` flag condenses each commit to a single line. By default, it displays only the commit ID and the first line of the commit message. Your typical `git log--oneline` output will look something like this:
 
-```
+```text
 867894f (HEAD -> main, tag: v1.0, origin/main) Resolved merge conflict in example.qmd
 7379f16 Added a line on main
 4099339 Added a line to example and a data folder on testbranch
 1116428 Initial commit
 ```
+\newpage
 
+# Make a Plot and Undo the Commit
 
+## Step 1: Make a Plot Using ggplot2
 
+1. Create a new section called "Make a Plot" by using the `#` character.
+2. Install the ggplot2 package in the Console then load it:
+```{r output=FALSE, message=FALSE, warning=FALSE}
+# load the package
+library(ggplot2)
+
+# view the dataset
+msleep
+```
+
+3. Try to make a plot by using a built-in dataset in ggplot2:
+```{r}
+#| label: fig-sleep-density
+#| fig-cap: "Distribution of Total Sleep Time in Mammals"
+
+# plot for total amount of sleep for mammals
+ggplot(data = msleep, mapping = aes(x = sleep_total)) +
+  geom_density() +
+  labs(title = "Distribution of Total Sleep Time in Mammals", 
+       x = "Total Amount of Sleep (hours)",
+       y = "Density") +
+  theme_classic()
+```
+
+## Step 2: Stage and Commit the Changes
+
+```bash
+git add .
+git commit -m"Add a new section and make a plot"
+```
+You can use `git log --oneline` to view the commit history. You'll get something like this:
+
+```text
+bd86707 (HEAD -> main) Add a new section and make a plot
+867894f (tag: v1.0, origin/main) Resolved merge conflict in example.qmd
+7379f16 Added a line on main
+4099339 Added a line to example and a data folder on testbranch
+1116428 Initial commit
+```
+
+## Step 3: Undo the Commit
+
+If you’ve just made a commit and realize you want to undo it, you can use the following command — as long as you haven’t pushed the commit yet:
+```bash
+git reset HEAD~1
+```
+Now try:
+```bash
+git log --oneline
+```
+You’ll see that the latest commit has been removed — `HEAD` has moved one commit backward.
+
+This command undoes the most recent commit but keeps all the changes in your working directory, just no longer staged. 
+You can confirm this by running:
+```bash
+git status
+```
+From here, you can make any adjustments, stage the correct files, and commit again with the proper message or content.
+
+::: {.callout-tip}
+## Tip
+If you prefer to keep all changes staged, use `git reset --soft`  instead.
+:::
 
