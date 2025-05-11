@@ -140,7 +140,18 @@ You should now see the `testbranch` and the commit messages appear on GitHub.
 We need the `-u` flag on the `push` command to set the remote branch as the default tracking branch. After running this, Git will remember that our local local is connected to the remote (origin). From now on, we can simply run `git push` without needing to specify the remote or branch name again.
 :::
 
+# Create a Conflict
 
+1. Switch back to branch `main`: `git switch main`
+2. Double check which branch you are currently working on: `git branch`
+3. Open the `example.qmd` file and edit the exact same line in `main` that you previously changed in `testbranch` to trigger a conflict.
+4. Save the file, then stage and commit the change:
+
+```bash
+git add .
+git commit -m"Added the same line on main to make a conflict"
+git push origin main
+```
 
 
 
