@@ -1,16 +1,51 @@
 ---
 title: "Git and Github Guide"
 author: "Kaiyi Ye"
-format: 
+format:
   pdf:
     toc: true
     number-sections: true
     keep-tex: true
-fontsize: 11pt
+    fontsize: 11pt
+    pdf-engine: xelatex
+    mainfont: 'Times New Roman'
+    sansfont: 'Arial'
+    monofont: 'Fira Mono'
+    include-in-header:
+      text: |
+        \definecolor{codefontcolor}{RGB}{125,18,186}
+        \definecolor{codebggray}{HTML}{f8f9fa}
+        \let\textttOrig\texttt
+        \renewcommand{\texttt}[1]{\textttOrig{\colorbox{codebggray}{\textcolor{codefontcolor}{#1}}}}
 ---
 
-## Create a RStudio Project and a qmd File
+# Set up RStudio Project and Create a `.qmd` File
 
-``` bash
-git init
+Establishing good practices for organizing and accessing project files is essential for effectively sharing your work with others.
+
+## Step 1: Create a New Project
+
+1.  Open RStudio.
+2.  Go to the top menu and select `File` \> `New Project....`
+3.  In the “New Project” wizard, select `New Directory`.
+4.  Choose `New Project`.
+5.  Enter a name for your project and select a location on your computer where you want to save it.
+6.  Click `Create Project`.
+
+## Step 2: Create a `.qmd` File
+
+1.  Go to the top menu and select `File` \> `New file` \> `Quarto Document`.
+2.  Save the file as `example.qmd`.
+3.  Modify the YAML to set the document to render as HTML:
+
+``` yaml
+title: "example"
+author: write your name
+format: html
 ```
+
+4.  Save the file, then render to preview the document output.
+
+![](Images/Screenshot-knitted-qmd.png)\
+
+
