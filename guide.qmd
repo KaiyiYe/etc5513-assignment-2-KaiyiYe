@@ -219,7 +219,18 @@ Now you can see that there is only one branch `main` in GitHub.
 You cannot delete a branch if your `HEAD` is on that branch.
 :::
 
+# Show the Commit Log
 
+Use `git log --oneline` to show the commit log in the terminal.
+
+The `--oneline` flag condenses each commit to a single line. By default, it displays only the commit ID and the first line of the commit message. Your typical `git log--oneline` output will look something like this:
+
+```
+867894f (HEAD -> main, tag: v1.0, origin/main) Resolved merge conflict in example.qmd
+7379f16 Added a line on main
+4099339 Added a line to example and a data folder on testbranch
+1116428 Initial commit
+```
 
 
 
